@@ -1,0 +1,10 @@
+Comando para escolher a PASTA a partir da qual o servidor PHP vai se iniciar:
+    php -S localhost:8080 -t public
+
+O parâmetro -S (maiúsculo) abre o servidor web do PHP. 
+O parâmetro -t (minúsculo) definte o caminho target para os arquivos do PHP.
+
+O projeto inicial no composer.json não continha as seguintes dependências, as 
+quais foram necessárias para rodar o projeto baixado: 
+    symfony/cache
+    doctrine/annotations
