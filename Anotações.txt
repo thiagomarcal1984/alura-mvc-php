@@ -36,3 +36,15 @@ O MVC apresentado no curso tem alguns acréscimos antes de acessar o controller:
 O PHP tem três variáveis globais que podem ser usadas para guardar os dados
 das requisições HTTP: $_GET, $_POST ou $_REQUEST (que busca os dados, 
 independente de o método ser GET ou POST).
+
+A função filter_input serve para filtrar dados da requisição. Os parâmetros são:
+    1)  Tipo: no caso, vai filtrar de INPUT_POST;
+    2)  Nome da variável: no exemplo, 'descricao';
+    3)  Filtro: no caso, FILTER_SANITIZE_STRING (que está deprecado no PHP 8).
+        Há outros filtros (FILTER_VALIDATE_INT).
+
+Para remover HTML, recomenda-se substituir a função filter_input pela função 
+htmlspecialchars, pois o filtro FILTER_SANITIZE_STRING está deprecado no PHP 8.
+
+A função filter_var é semelhante à filter_input, mas é usada para variáveis ao
+invés de requisições GET ou POST.
