@@ -8,3 +8,16 @@ O projeto inicial no composer.json não continha as seguintes dependências, as
 quais foram necessárias para rodar o projeto baixado: 
     symfony/cache
     doctrine/annotations
+
+*** Ponto único de entrada ***
+Por padrão, se um caminho sem extensão for procurado no navegador, o servidor 
+PHP retorna o arquivo index.php (ou qualquer arquivo definido como padrão pelo 
+servidor web). Se você solicitar um arquivo com a extensão .php, o servidor 
+retorna o arquivo .php ou a mensagem de erro caso não encontre o arquivo.
+
+O benefício de o servidor buscar o index a partir de uma URI indisponível é
+que esse índice pode buscar páginas a partir dessa URI.
+
+A variável global $_SERVER é um array que contém o caminho da URI solicitada.
+No PHP 7 o nome da variável que contém a URI é 'PATH_INFO'.
+No PHP 8 o nome da variável que contém a URI é 'REQUEST_URI'.
