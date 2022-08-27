@@ -26,3 +26,9 @@ No PHP 8 o nome da variável que contém a URI é 'REQUEST_URI'.
 A ideia é que as URI referenciem um controlador, e ele será responsável por
 escolher o que será exibido como resultado. A ideia agora é criar nas classes
 controladoras um método que processa a requisição e que retorna o HTML.
+
+O MVC apresentado no curso tem alguns acréscimos antes de acessar o controller:
+    Browser: que solicita recursos ao web server.
+    Web Server: quem responde ao browser, após os retornos dos controllers.
+    Routes: mapeia uma URI a um controlador.
+    Dispatcher: redireciona as requisições aos controllers, usando routes.
