@@ -48,3 +48,18 @@ htmlspecialchars, pois o filtro FILTER_SANITIZE_STRING está deprecado no PHP 8.
 
 A função filter_var é semelhante à filter_input, mas é usada para variáveis ao
 invés de requisições GET ou POST.
+
+O código PHP pode adicionar cabeçalhos à resposta HTTP. É útil para 
+redirecionar requisições, por exemplo. A sintaxe no PHP é: 
+    header($string); 
+    Ex.: header('Location: /listar-cursos');// Já basta pra redirecionar.
+
+A sintaxe completa da função header seria:
+    header($string, $replace, $http_response_code);
+
+    Onde:
+        $string = Conteúdo do cabeçalho.
+        $replace = Se verdadeiro, substitui o cabeçalho original.
+        $http_response_code = código HTTP usado na resposta.
+
+Nota: ao redirecionar a requisição, a resposta da página atual não é exibida.
