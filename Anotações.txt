@@ -32,3 +32,7 @@ O MVC apresentado no curso tem alguns acréscimos antes de acessar o controller:
     Web Server: quem responde ao browser, após os retornos dos controllers.
     Routes: mapeia uma URI a um controlador.
     Dispatcher: redireciona as requisições aos controllers, usando routes.
+
+O PHP tem três variáveis globais que podem ser usadas para guardar os dados
+das requisições HTTP: $_GET, $_POST ou $_REQUEST (que busca os dados, 
+independente de o método ser GET ou POST).
