@@ -16,8 +16,13 @@ servidor web). Se você solicitar um arquivo com a extensão .php, o servidor
 retorna o arquivo .php ou a mensagem de erro caso não encontre o arquivo.
 
 O benefício de o servidor buscar o index a partir de uma URI indisponível é
-que esse índice pode buscar páginas a partir dessa URI.
+que esse índice pode buscar páginas a partir dessa URI. Com um ponto único de 
+entrada, podemos filtrar todas as requisições e até realizar logs se quisermos.
 
 A variável global $_SERVER é um array que contém o caminho da URI solicitada.
 No PHP 7 o nome da variável que contém a URI é 'PATH_INFO'.
 No PHP 8 o nome da variável que contém a URI é 'REQUEST_URI'.
+
+A ideia é que as URI referenciem um controlador, e ele será responsável por
+escolher o que será exibido como resultado. A ideia agora é criar nas classes
+controladoras um método que processa a requisição e que retorna o HTML.
