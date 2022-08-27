@@ -63,3 +63,18 @@ A sintaxe completa da função header seria:
         $http_response_code = código HTTP usado na resposta.
 
 Nota: ao redirecionar a requisição, a resposta da página atual não é exibida.
+
+*******************************************************************************
+Sim, um arquivo PHP isolado pode ter retorno! Ver o config/routes.php.
+Daí, o "require 'config/routes.php" pode ser usado para setar uma variável:
+
+    $rotas = require __DIR__ . '/../config/routes.php';
+
+Sim, você pode instanciar uma classe a partir de uma variável! Se o conteúdo da
+variável for uma classe, basta substituir o nome da classe pela variável:
+    
+    $controlador = new $classeControladora();
+
+*******************************************************************************
+
+A função http_response_code modifica o código HTTP da resposta.
