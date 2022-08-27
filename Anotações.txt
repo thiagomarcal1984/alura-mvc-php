@@ -78,3 +78,11 @@ variável for uma classe, basta substituir o nome da classe pela variável:
 *******************************************************************************
 
 A função http_response_code modifica o código HTTP da resposta.
+
+Offtopic: algumas classes Bootstrap para aplicar flexbox. Pesquise as outras: 
+    d-flex justify-content-between
+
+Outro offtopic: o Doctrine pode precisar de seus proxies (no caso da exclusão
+do curso, precisamos de um proxy para fazer a exclusão). Para isso, use o 
+seguinte comando do doctrine:
+    php .\vendor\bin\doctrine orm:generate-proxies
