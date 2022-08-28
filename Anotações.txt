@@ -158,3 +158,16 @@ outra para substituir a classe que renderiza o HTML.
 Crie o hábito de consultar a página do PHP-FIG para ver padrões aplicáveis a
 projetos do PHP: https://www.php-fig.org/ . Nesse site temos as chamadas PSRs
 (PHP Standard Recommendations)
+
+*******************************************************************************
+A pasta psrs representa um projeto à parte.
+
+O composer vai precisar da dependência a seguir (que só tem a interface): 
+    psr/http-message
+
+As dependências da implementação dessa interface são:
+    nyholm/psr7
+    nyholm/psr7-server
+*******************************************************************************
+
+A PSR 17 define um padrão para mensagens (requisições e respostas) HTTP no PHP.
