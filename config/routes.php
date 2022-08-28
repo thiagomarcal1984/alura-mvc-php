@@ -5,6 +5,7 @@ use Alura\Cursos\Controller\{
     Exclusao,
     FormularioEdicao,
     FormularioInsercao,
+    FormularioLogin,
     ListarCursos,
     Persistencia
 };
@@ -15,4 +16,5 @@ return [
     '/salvar-curso' => Persistencia::class,
     '/alterar-curso' => FormularioEdicao::class,
     '/excluir-curso' => Exclusao::class,
+    '/login' => FormularioLogin::class,
 ];
