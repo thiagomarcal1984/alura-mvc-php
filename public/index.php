@@ -15,6 +15,12 @@ if (!array_key_exists($caminho, $rotas)) {
 
 session_start(); // Grava/recupera o cookie PHPSESSID e inicia a sessão.
 
+$ehRotaDeLogin = stripos($caminho, 'login');
+if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false) {
+    header('Location: /login');
+    exit();
+}
+
 $classeControladora = $rotas[$caminho];
 /** @var InterfaceControladorRequisicao $controlador */
 $controlador = new $classeControladora();

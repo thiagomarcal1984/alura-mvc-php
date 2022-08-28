@@ -120,7 +120,18 @@ No PHP é necessário declarar que a sessão está sendo iniciada antes de salva
 qualquer informação na sessão. Para isso, usamos a função session_start().
 
 Como há um ponto único de entrada no nosso código, a session_start só precisa
-ser chamada uma vez nesse ponto único.
+ser chamada uma vez nesse ponto único. Antes de qualquer saída para o navegador
+é necessário abrir uma sessão com session_start.
 
 A função session_start envia um cookie (PHPSESSID) a partir do qual as 
 informações de sessão são salvas/recuperadas.
+
+$ehRotaDeLogin === false não é o mesmo que !ehRotaDeLogin.
+Ao usar a funsção stripos, a string pode retornar zero se a palavra procurada
+estiver no início na string onde se faz a a busca. Por isso, a sintaxe dos 3 
+iguais é melhor.
+
+Uma forma de forçar o logout é:
+    1) no browser, procure pela aba Application na Developer Tools.
+    2) Procure, na seção Storage, o nó Cookies.
+    3) A partir da URL onde está a aplicação, delete os cookies de sessão.
