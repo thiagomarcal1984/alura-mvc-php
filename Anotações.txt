@@ -86,3 +86,10 @@ Outro offtopic: o Doctrine pode precisar de seus proxies (no caso da exclusão
 do curso, precisamos de um proxy para fazer a exclusão). Para isso, use o 
 seguinte comando do doctrine:
     php .\vendor\bin\doctrine orm:generate-proxies
+
+O PHP dispõe do chamado Output Buffer: ele guarda informações que normalmente
+ficariam na saída padrão, para uso posterior. Métodos do Output Buffer:
+    ob_start();     // Inicia o Output Buffer
+    ob_get();       // Retorna o conteúdo do Output Buffer, sem limpa-lo.
+    ob_clean();     // Limpa o conteúdo do Output Buffer.
+    ob_get_clean(); // O mesmo que ob_get() e ob_clean() juntos.
