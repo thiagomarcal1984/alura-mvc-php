@@ -21,6 +21,9 @@ class Exclusao implements InterfaceControladorRequisicao
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
         if ($id === null || $id === false) {
+            $_SESSION['tipoMensagem'] = 'danger';
+            $_SESSION['mensagem'] = "Curso inexistente.";
+
             header('Location: /listar-cursos');
             return; // Sem este return, o resto do código continua sendo executado.
         }
@@ -31,6 +34,9 @@ class Exclusao implements InterfaceControladorRequisicao
         );
         $this->entityManager->remove($curso);
         $this->entityManager->flush();
+
+        $_SESSION['tipoMensagem'] = 'success';
+        $_SESSION['mensagem'] = "Curso excluído com sucesso.";
 
         header('Location: /listar-cursos');
     }

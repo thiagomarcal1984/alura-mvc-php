@@ -38,11 +38,14 @@ class Persistencia implements InterfaceControladorRequisicao
             $this->entityManager->merge($curso); 
             // O método merege faz com que o Doctrine passe a gerenciar a 
             // entidade, como se tivesse sido recuperada do banco.
+            $_SESSION['mensagem'] = "Curso atualizado com sucesso.";
         } else {
             $this->entityManager->persist($curso);
+            $_SESSION['mensagem'] = "Curso inserido com sucesso.";
         }
         $this->entityManager->flush();
 
+        $_SESSION['tipoMensagem'] = "success";
         header('Location: /listar-cursos', true, 302);
     }
 }

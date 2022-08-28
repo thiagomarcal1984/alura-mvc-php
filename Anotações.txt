@@ -144,3 +144,6 @@ Uma forma de forçar o logout é:
     1) no browser, procure pela aba Application na Developer Tools.
     2) Procure, na seção Storage, o nó Cookies.
     3) A partir da URL onde está a aplicação, delete os cookies de sessão.
+
+O padrão de exibir alertas na página (ou não) se chama Flash Messages. Vários
+frameworks (como o Django pra Python) implementam esse padrão.

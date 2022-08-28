@@ -20,3 +20,14 @@
     <div class="jumbotron">
         <h1><?= $titulo?></h1>
     </div>
+    <?php if (isset($_SESSION['mensagem'])) : ?>
+    <div class="alert alert-<?= $_SESSION['tipoMensagem']; ?>">
+        <?= $_SESSION['mensagem']; ?>
+    </div>
+    <?php 
+        // O código a seguir evita que as mensagens de alerta se repitam ao 
+        // atualizar uma página que já recebeu alguma mensagem.
+        unset($_SESSION['tipoMensagem']);
+        unset($_SESSION['mensagem']);
+        endif; 
+    ?>
