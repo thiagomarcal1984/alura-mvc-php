@@ -35,8 +35,9 @@ class Persistencia implements InterfaceControladorRequisicao
 
         if (!is_null($id) && $id !== false) {
             $curso->setId($id);
-            // Atualizar o objeto com o que tem do database, a partir do ID.
             $this->entityManager->merge($curso); 
+            // O método merege faz com que o Doctrine passe a gerenciar a 
+            // entidade, como se tivesse sido recuperada do banco.
         } else {
             $this->entityManager->persist($curso);
         }
