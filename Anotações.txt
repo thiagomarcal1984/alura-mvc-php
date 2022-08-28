@@ -115,3 +115,12 @@ Comando SQL para inserção do usuário no database:
 
 A função password_verify testa se uma senha é igual a um hash. Ela já está
 no método senhaEstaCorreta da classe Usuario.
+
+No PHP é necessário declarar que a sessão está sendo iniciada antes de salvar
+qualquer informação na sessão. Para isso, usamos a função session_start().
+
+Como há um ponto único de entrada no nosso código, a session_start só precisa
+ser chamada uma vez nesse ponto único.
+
+A função session_start envia um cookie (PHPSESSID) a partir do qual as 
+informações de sessão são salvas/recuperadas.

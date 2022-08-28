@@ -13,6 +13,8 @@ if (!array_key_exists($caminho, $rotas)) {
     exit();
 }
 
+session_start(); // Grava/recupera o cookie PHPSESSID e inicia a sessão.
+
 $classeControladora = $rotas[$caminho];
 /** @var InterfaceControladorRequisicao $controlador */
 $controlador = new $classeControladora();
