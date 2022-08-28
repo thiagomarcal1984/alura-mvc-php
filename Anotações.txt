@@ -93,3 +93,17 @@ ficariam na saída padrão, para uso posterior. Métodos do Output Buffer:
     ob_get();       // Retorna o conteúdo do Output Buffer, sem limpa-lo.
     ob_clean();     // Limpa o conteúdo do Output Buffer.
     ob_get_clean(); // O mesmo que ob_get() e ob_clean() juntos.
+
+Funções de senha no PHP:
+    md5('senha') => retorna uma string com um hash MD5. É fácil decriptografar.
+    hash('método', 'senha) => retorna  uma string, um hash gerado a partir do 
+        método escolhido.
+    password_hash(string $senha, int $algoritmo, array $options) => idem função
+        hash, mas que contém mais opções.
+
+Para a senha 123456, o hash usando Argon2I é:
+    php > echo password_hash('123456', PASSWORD_ARGON2I);
+    $argon2i$v=19$m=65536,t=4,p=1$c2JsT2JxT1drck1hL3F1Nw$G1uvII9sLPXn/ZJhMcP8SwSbKqpmO/sakWgAdWqcEJE
+
+Comando SQL para inserção do usuário no database:
+    php .\vendor\bin\doctrine dbal:run-sql "INSERT INTO usuarios (email, senha) VALUES ('vinicius@alura.com.br', '$argon2i$v=19$m=65536,t=4,p=1$c2JsT2JxT1drck1hL3F1Nw$G1uvII9sLPXn/ZJhMcP8SwSbKqpmO/sakWgAdWqcEJE');"
