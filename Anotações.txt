@@ -154,3 +154,7 @@ aumentando o reúso de código e evitando repetição em vários pontos.
 
 No projeto, usaremos traits para adicionar um método de adicionar mensagem, e 
 outra para substituir a classe que renderiza o HTML.
+
+Crie o hábito de consultar a página do PHP-FIG para ver padrões aplicáveis a
+projetos do PHP: https://www.php-fig.org/ . Nesse site temos as chamadas PSRs
+(PHP Standard Recommendations)
