@@ -2,9 +2,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Alura\Cursos\Controller\InterfaceControladorRequisicao;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Psr\Http\Server\RequestHandlerInterface;
 
 $caminho = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : $_SERVER['REQUEST_URI'];
 
@@ -39,9 +39,9 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
-/** @var InterfaceControladorRequisicao $controlador */
+/** @var RequestHandlerInterface $controlador */
 $controlador = new $classeControladora();
-$resposta = $controlador->processaRequisicao($request);
+$resposta = $controlador->handle($request);
 
 // O código abaixo, extraído de MessageInterface da implementação da PSR17,
 // serve para enviar todos os cabeçalhos que estão na resposta HTTP.

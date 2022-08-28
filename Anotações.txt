@@ -170,4 +170,12 @@ As dependências da implementação dessa interface são:
     nyholm/psr7-server
 *******************************************************************************
 
-A PSR 17 define um padrão para mensagens (requisições e respostas) HTTP no PHP.
+A PSR-7 define um padrão para mensagens (requisições e respostas) HTTP no PHP.
+A PSR-17 define um padrão para fábricas de mensagens que aderem a PSR-7.
+
+Mais uma dependência do composer, desta vez para a PSR-15 (para Handlers de 
+Requisições de servidor HTTP): 
+    psr/http-server-handler
+
+A PSR-15 estabelece as interfaces para os request handlers de servidor e 
+componentes de middleware que usam as mensagens criadas na forma da PSR-7.
