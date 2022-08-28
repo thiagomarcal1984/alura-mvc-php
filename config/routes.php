@@ -2,6 +2,7 @@
 
 // Imports agrupados.
 use Alura\Cursos\Controller\{
+    Deslogar,
     Exclusao,
     FormularioEdicao,
     FormularioInsercao,
@@ -19,4 +20,5 @@ return [
     '/excluir-curso' => Exclusao::class,
     '/login' => FormularioLogin::class,
     '/realiza-login' => RealizarLogin::class,
+    '/logout' => Deslogar::class,
 ];
