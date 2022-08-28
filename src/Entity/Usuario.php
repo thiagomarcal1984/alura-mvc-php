@@ -1,5 +1,5 @@
 <?php
-namespace Alura\Armazenamento\Entity;
+namespace Alura\Cursos\Entity; // Correção do namespace.
 /**
  * @Entity
  * @Table(name="usuarios")
@@ -23,6 +23,7 @@ class Usuario
 
     public function senhaEstaCorreta(string $senhaPura): bool
     {
-        return password_verify($senhaPura, $this->senha);
+        // Compara a senha pura com o hash armazenado no banco de dados.
+        return password_verify($senhaPura, $this->senha); 
     }
 }

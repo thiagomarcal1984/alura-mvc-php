@@ -106,4 +106,12 @@ Para a senha 123456, o hash usando Argon2I é:
     $argon2i$v=19$m=65536,t=4,p=1$c2JsT2JxT1drck1hL3F1Nw$G1uvII9sLPXn/ZJhMcP8SwSbKqpmO/sakWgAdWqcEJE
 
 Comando SQL para inserção do usuário no database:
-    php .\vendor\bin\doctrine dbal:run-sql "INSERT INTO usuarios (email, senha) VALUES ('vinicius@alura.com.br', '$argon2i$v=19$m=65536,t=4,p=1$c2JsT2JxT1drck1hL3F1Nw$G1uvII9sLPXn/ZJhMcP8SwSbKqpmO/sakWgAdWqcEJE');"
+    Cuidado: Todas as partes com $ estão sendo parseadas como se fossem variáveis. 
+        Como não existem, essa parte tá ficando simplesmente vazia.
+        Coloque contra-barra antes de cada $ na hora de inserir.
+    php .\vendor\bin\doctrine dbal:run-sql "INSERT INTO usuarios (email, senha) VALUES ('vinicius@alura.com.br', '\$argon2i\$v=19\$m=65536,t=4,p=1\$c2JsT2JxT1drck1hL3F1Nw\$G1uvII9sLPXn/ZJhMcP8SwSbKqpmO/sakWgAdWqcEJE');"
+        AINDA ASSIM, O DOCTRINE NÃO INSERE O HASH DE MANEIRA FIEL.
+        A SOLUÇÃO FOI EDITAR O DBSQLITE DIRETO.
+
+A função password_verify testa se uma senha é igual a um hash. Ela já está
+no método senhaEstaCorreta da classe Usuario.
