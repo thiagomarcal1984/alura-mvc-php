@@ -147,3 +147,10 @@ Uma forma de forçar o logout é:
 
 O padrão de exibir alertas na página (ou não) se chama Flash Messages. Vários
 frameworks (como o Django pra Python) implementam esse padrão.
+
+Traits são "classes" que podem ser reusadas em várias outras classes. É um meio
+de simular herança múltipla e acrescentar funcionalidades a uma classe, 
+aumentando o reúso de código e evitando repetição em vários pontos.
+
+No projeto, usaremos traits para adicionar um método de adicionar mensagem, e 
+outra para substituir a classe que renderiza o HTML.
