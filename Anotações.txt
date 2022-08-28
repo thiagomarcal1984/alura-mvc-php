@@ -131,6 +131,15 @@ Ao usar a funsção stripos, a string pode retornar zero se a palavra procurada
 estiver no início na string onde se faz a a busca. Por isso, a sintaxe dos 3 
 iguais é melhor.
 
+Desde a versão 8.0 do PHP nós temos uma função mais amigável para verificar se
+determinada string existe em outra. Ou seja, para verificar se a string "login"
+existe em nossa URL nós podemos utilizar essa outra função. O nome dela é 
+str_contains. Então o código ficaria:
+    $ehRotaDeLogin = str_contains($caminho, 'login');
+
+Essa função retorna um booleano (verdadeiro ou falso) e não um inteiro. Sendo 
+assim, não temos aquele problema de verificar somente !$ehRotaDeLogin.
+
 Uma forma de forçar o logout é:
     1) no browser, procure pela aba Application na Developer Tools.
     2) Procure, na seção Storage, o nó Cookies.
