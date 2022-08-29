@@ -4,6 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 $caminho = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : $_SERVER['REQUEST_URI'];
@@ -39,8 +40,13 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
+/** @var ContainerInterface */
+$container = require __DIR__ . '/../config/dependencies.php';
 /** @var RequestHandlerInterface $controlador */
-$controlador = new $classeControladora();
+// O container instancia a classe controladora, e não o desenvolvedor.
+// Além disso, ele varre as propriedades da classe e injeta o objeto conforme
+// a classe que estiver na definição do Container Builder.
+$controlador = $container->get($classeControladora); 
 $resposta = $controlador->handle($request);
 
 // O código abaixo, extraído de MessageInterface da implementação da PSR17,

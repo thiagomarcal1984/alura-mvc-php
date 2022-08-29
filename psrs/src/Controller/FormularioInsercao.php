@@ -2,6 +2,7 @@
 
 namespace Alura\Cursos\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -10,9 +11,17 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class FormularioInsercao implements RequestHandlerInterface
 {
+    /** @var EntityManagerInterface */
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $html = "Teste";
-        return new Response(200, ['Location' => 'http://www.alura.com.br'], $html); // Parâmetros: statusCode, headers, body.
+        return new Response(200, [], $html); // Parâmetros: statusCode, headers, body.
     }
 }

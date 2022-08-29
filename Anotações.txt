@@ -179,3 +179,18 @@ Requisições de servidor HTTP):
 
 A PSR-15 estabelece as interfaces para os request handlers de servidor e 
 componentes de middleware que usam as mensagens criadas na forma da PSR-7.
+
+A PSR-11 estabelece a interface para containers de injeção de dependência.
+
+Uma dependência composer da implementação da PSR-11 é:
+    php-di/php-di
+
+Se a dependência não for instalada, acrescente esta dependência no bloco 
+"require" do composer.json e rode update/install: 
+    "psr/container": "^1.1"
+
+No site do PHP DI fala que é necessário criar um container (que fica guardado
+num arquivo de configurações, no nosso exemplo é dependencies.php). No 
+container builder acrescentamos as definições das classes que representam os
+objetos que serão injetados. Finalmente, as classes são instanciadas por meio 
+do método get do container (veja a criação dos controladores em index.php).
