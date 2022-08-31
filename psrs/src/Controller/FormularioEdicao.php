@@ -4,21 +4,26 @@ namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
 use Alura\Cursos\Helper\FlashMessageTrait;
+use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class Exclusao implements RequestHandlerInterface
+class FormularioEdicao implements RequestHandlerInterface
 {
     use FlashMessageTrait;
-    private $entityManager;
+    use RenderizadorDeHtmlTrait;
+
+    /** @var EntityRepository */
+    private $repositorioCursos;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
-        
+        $this->repositorioCursos = $entityManager
+            ->getRepository(Curso::class);
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -34,15 +39,10 @@ class Exclusao implements RequestHandlerInterface
             return $resposta;
         }
 
-        $curso = $this->entityManager->getReference(
-            Curso::class, 
-            $id
-        );
-        $this->entityManager->remove($curso);
-        $this->entityManager->flush();
+        $curso = $this->repositorioCursos->find($id);
 
-        $this->defineMensagem("success", "Curso excluído com sucesso.");
+        $html = $this->renderizaHtml('cursos/formulario.php', ["titulo" => "Alterar título do curso " . $curso->getId(), "curso" => $curso]);
 
-        return new Response(302, ['Location' => 'listar-cursos']);
+        return new Response(200, [], $html);
     }
 }

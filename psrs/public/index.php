@@ -18,11 +18,11 @@ if (!array_key_exists($caminho, $rotas)) {
 
 session_start(); // Grava/recupera o cookie PHPSESSID e inicia a sessão.
 
-// $ehRotaDeLogin = stripos($caminho, 'login');
-// if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false) {
-//     header('Location: /login');
-//     exit();
-// }
+$ehRotaDeLogin = stripos($caminho, 'login');
+if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false) {
+    header('Location: /login');
+    exit();
+}
 
 // Fábrica de Mensagens HTTP.
 $psr17Factory = new Psr17Factory();
