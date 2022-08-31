@@ -194,3 +194,7 @@ num arquivo de configurações, no nosso exemplo é dependencies.php). No
 container builder acrescentamos as definições das classes que representam os
 objetos que serão injetados. Finalmente, as classes são instanciadas por meio 
 do método get do container (veja a criação dos controladores em index.php).
+
+A função json_encode do PHP converte objetos PHP em JSON. No entanto, ele não
+mostra dados privados dos objetos PHP com propriedades privadas. Para resolver
+isso, as classes de entidade precisam implementar a interface JsonSerializable.
