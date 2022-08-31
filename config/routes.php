@@ -3,6 +3,7 @@
 // Imports agrupados.
 use Alura\Cursos\Controller\{
     CursosEmJson,
+    CursosEmXml,
     Deslogar,
     Exclusao,
     FormularioEdicao,
@@ -23,4 +24,5 @@ return [
     '/realiza-login' => RealizarLogin::class,
     '/logout' => Deslogar::class,
     '/buscarCursosEmJson' => CursosEmJson::class,
+    '/buscarCursosEmXml' => CursosEmXml::class,
 ];

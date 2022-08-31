@@ -198,3 +198,9 @@ do método get do container (veja a criação dos controladores em index.php).
 A função json_encode do PHP converte objetos PHP em JSON. No entanto, ele não
 mostra dados privados dos objetos PHP com propriedades privadas. Para resolver
 isso, as classes de entidade precisam implementar a interface JsonSerializable.
+
+Não há uma função nativa do PHP para serializar os objetos em XML. Veja o 
+controlador CursosEmXml para saber como se cria. O navegador exibe os valores
+contidos nas tags XML. Para ver o XML, é necessário ver o código-fonte. Outra
+alternativa é inserir um cabeçalho Content-Type: application/xml. Assim, o 
+browser consegue mostrar melhor o XML.
